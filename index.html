@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>বাংলাদেশ আহলেহাদীছ যুবসংঘ – সাতক্ষীরা জেলা</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --g:#0b6b3a; --g2:#0f8a4c; --gl:#e8f5ee; --ink:#1b2a22; --mut:#5d6f65;
+    --line:#d5e2da; --bg:#f3f7f4; --err:#c0392b; --gold:#c9a227;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Noto Sans Bengali',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  header{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;text-align:center;padding:28px 16px 40px;border-bottom:4px solid var(--gold)}
+  header .bis{font-size:14px;opacity:.85;margin-bottom:6px}
+  header h1{margin:0;font-size:24px;font-weight:700}
+  header h2{margin:6px 0 0;font-size:17px;font-weight:500;opacity:.95}
+  header p{margin:12px auto 0;max-width:520px;font-size:14px;opacity:.9}
+  main{max-width:640px;margin:-22px auto 40px;padding:0 16px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px;box-shadow:0 2px 10px rgba(11,107,58,.06)}
+  .card h3{margin:0 0 12px;font-size:16px;color:var(--g);border-bottom:2px solid var(--gl);padding-bottom:6px}
+  label{display:block;font-weight:600;font-size:14px;margin:12px 0 4px}
+  label .r{color:var(--err)}
+  input,select,textarea{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--g2);box-shadow:0 0 0 3px rgba(15,138,76,.15)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:520px){.row{grid-template-columns:1fr}}
+  .opts{display:grid;gap:8px;margin-top:6px}
+  .opt{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;font-weight:500}
+  .opt input{width:auto;margin:0;accent-color:var(--g)}
+  .opt:has(input:checked){border-color:var(--g2);background:var(--gl)}
+  .hint{font-size:12px;color:var(--mut);margin-top:3px}
+  .invalid{border-color:var(--err)!important}
+  .msg{color:var(--err);font-size:13px;margin-top:10px;display:none}
+  button{width:100%;font:inherit;font-weight:700;font-size:16px;padding:14px;border:0;border-radius:12px;background:var(--g);color:#fff;cursor:pointer}
+  button:disabled{opacity:.6}
+  .done{display:none;text-align:center;padding:36px 18px}
+  .done .tick{width:64px;height:64px;border-radius:50%;background:var(--gl);color:var(--g);font-size:34px;line-height:64px;margin:0 auto 12px}
+  .done a{color:var(--g);font-weight:600;cursor:pointer;text-decoration:underline}
+  .cb{position:relative}
+  .list{display:none;position:absolute;left:0;right:0;top:100%;z-index:20;background:#fff;border:1.5px solid var(--g2);border-radius:10px;margin-top:4px;max-height:260px;overflow:auto;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+  .list div{padding:10px 12px;cursor:pointer;border-bottom:1px solid var(--gl)}
+  .list div:last-child{border:0}
+  .list div.on,.list div:hover{background:var(--gl)}
+  .list .none{color:var(--mut);cursor:default;font-size:13px}
+  footer{text-align:center;color:var(--mut);font-size:12px;padding-bottom:30px}
+</style>
+</head>
+<body>
+<header>
+  <div class="bis">بسم الله الرحمن الرحيم</div>
+  <h1>বাংলাদেশ আহলেহাদীছ যুবসংঘ</h1>
+  <h2>সাতক্ষীরা জেলা</h2>
+  <p>শিক্ষার্থী তথ্য সংগ্রহ ফর্ম – অনুগ্রহ করে সঠিক তথ্য দিয়ে পূরণ করুন।</p>
+</header>
+
+<main>
+<form id="f" novalidate>
+  <div class="card">
+    <h3>ব্যক্তিগত তথ্য</h3>
+    <label>শিক্ষার্থীর নাম <span class="r">*</span></label>
+    <input name="name" required autocomplete="name">
+    <label>পিতার নাম <span class="r">*</span></label>
+    <input name="father" required>
+    <div class="row">
+      <div><label>ব্লাড গ্রুপ</label>
+        <select name="blood"><option value="">নির্বাচন করুন</option>
+          <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+          <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+          <option>জানি না</option></select></div>
+      <div><label>জেলা</label><input value="সাতক্ষীরা" disabled></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>ঠিকানা ও যোগাযোগ</h3>
+    <label>উপজেলা <span class="r">*</span></label>
+    <div class="cb"><input id="upazila" placeholder="অক্ষর লিখুন, যেমন: কা…" autocomplete="off" required><div class="list" id="upList"></div></div>
+    <div class="hint">টাইপ করুন বা তালিকা থেকে বেছে নিন</div>
+    <div class="row">
+      <div><label>ইউনিয়ন</label><input name="union"></div>
+      <div><label>গ্রাম <span class="r">*</span></label><input name="village" required></div>
+    </div>
+    <div class="row">
+      <div><label>ফোন নম্বর <span class="r">*</span></label>
+        <input name="phone" type="tel" inputmode="tel" placeholder="01XXXXXXXXX" required></div>
+      <div><label>সেকেন্ডারি ফোন নম্বর</label>
+        <input name="phone2" type="tel" inputmode="tel" placeholder="01XXXXXXXXX"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>শিক্ষা সংক্রান্ত তথ্য</h3>
+    <label>অধ্যয়নরত প্রতিষ্ঠান <span class="r">*</span></label>
+    <div class="cb"><input id="inst" placeholder="আগে উপজেলা নির্বাচন করুন" autocomplete="off" disabled><div class="list" id="instList"></div></div>
+    <div class="hint">স্কুল / কলেজ / মাদরাসার নামের অক্ষর লিখুন। তালিকায় না থাকলে পুরো নাম লিখে দিন।</div>
+    <div class="row">
+      <div><label>শিক্ষাবর্ষ</label><input name="session" placeholder="যেমন: ২০২৬"></div>
+      <div><label>শ্রেণি <span class="r">*</span></label>
+        <select name="level" required><option value="">নির্বাচন করুন</option>
+          <option>৬ষ্ঠ</option><option>৭ম</option><option>৮ম</option><option>৯ম</option><option>১০ম</option>
+          <option>একাদশ</option><option>দ্বাদশ</option>
+          <option>ডিগ্রি (পাস)</option><option>অনার্স</option><option>মাস্টার্স</option>
+          <option>মাদরাসা</option><option>অন্যান্য</option></select></div>
+    </div>
+    <div class="row">
+      <div><label>বর্ষ</label>
+        <select name="year"><option value="">প্রযোজ্য নয়</option>
+          <option>১ম বর্ষ</option><option>২য় বর্ষ</option><option>৩য় বর্ষ</option><option>৪র্থ বর্ষ</option></select></div>
+      <div><label>বিভাগ</label>
+        <select name="dept"><option value="">প্রযোজ্য নয়</option>
+          <option>বিজ্ঞান</option><option>মানবিক</option><option>ব্যবসায় শিক্ষা</option><option>অন্যান্য</option></select></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>সাংগঠনিক তথ্য</h3>
+    <label>সাংগঠনিক মান</label>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="rank" value="সমর্থক"> সমর্থক</label>
+      <label class="opt"><input type="radio" name="rank" value="প্রাথমিক সদস্য"> প্রাথমিক সদস্য</label>
+      <label class="opt"><input type="radio" name="rank" value="অনুমোদিত কর্মী"> অনুমোদিত কর্মী</label>
+      <label class="opt"><input type="radio" name="rank" value="কেন্দ্রীয় কাউন্সিল সদস্য"> কেন্দ্রীয় কাউন্সিল সদস্য</label>
+    </div>
+    <label>বাংলাদেশ আহলেহাদীছ যুবসংঘ সম্পর্কে মন্তব্য</label>
+    <textarea name="comment" rows="3"></textarea>
+  </div>
+
+  <div class="msg" id="err"></div>
+  <button id="btn" type="submit">জমা দিন</button>
+</form>
+
+<div class="card done" id="done">
+  <div class="tick">✓</div>
+  <h3 style="border:0">জাযাকাল্লাহু খাইরান!</h3>
+  <p>আপনার তথ্য সফলভাবে জমা হয়েছে।</p>
+  <p><a onclick="location.reload()">আরেকটি ফর্ম পূরণ করুন</a></p>
+</div>
+</main>
+<footer>© বাংলাদেশ আহলেহাদীছ যুবসংঘ, সাতক্ষীরা জেলা</footer>
+
+<script>
+let SCHOOLS = {};
+const API = 'https://script.google.com/macros/s/AKfycbz2AFVPXizZz8eNy4gaJ4TGLVwbQlebQglUnIZyiDrKD4jV6VxuMu6Nb3WmrDCRQwNqmA/exec';
+let UPAZILAS = ['সাতক্ষীরা সদর','কলারোয়া','তালা','দেবহাটা','আশাশুনি','কালিগঞ্জ','শ্যামনগর'];
+fetch(API + '?action=data').then(r => r.json()).then(d => {
+  if (d && d.schools) SCHOOLS = d.schools;
+  if (d && d.upazilas) UPAZILAS = d.upazilas;
+}).catch(() => {});
+const $ = id => document.getElementById(id);
+const up = $('upazila'), inst = $('inst');
+
+/* টাইপ করলে সাজেশন দেখানো ড্রপডাউন */
+function combo(input, box, getItems, onPick) {
+  let idx = -1, shown = [];
+  const norm = s => String(s).toLowerCase().replace(/\s+/g, ' ').trim();
+  function render() {
+    const q = norm(input.value);
+    const all = getItems();
+    const starts = all.filter(x => norm(x).startsWith(q));
+    const has = all.filter(x => !norm(x).startsWith(q) && norm(x).includes(q));
+    shown = (q ? starts.concat(has) : all).slice(0, 60);
+    idx = -1;
+    box.innerHTML = '';
+    if (!shown.length) {
+      const n = document.createElement('div'); n.className = 'none';
+      n.textContent = all.length ? 'মিলছে না – পুরো নাম লিখে দিন' : 'এই উপজেলার তালিকা খালি – পুরো নাম লিখে দিন';
+      box.appendChild(n);
+    }
+    shown.forEach(x => {
+      const d = document.createElement('div'); d.textContent = x;
+      d.addEventListener('mousedown', ev => { ev.preventDefault(); pick(x); });
+      box.appendChild(d);
+    });
+    box.style.display = 'block';
+  }
+  function pick(x) { input.value = x; box.style.display = 'none'; onPick && onPick(x); }
+  function mark() { [...box.children].forEach((c, i) => c.classList.toggle('on', i === idx)); const c = box.children[idx]; c && c.scrollIntoView({block:'nearest'}); }
+  input.addEventListener('input', render);
+  input.addEventListener('focus', render);
+  input.addEventListener('blur', () => { box.style.display = 'none'; });
+  input.addEventListener('keydown', e => {
+    if (box.style.display !== 'block') return;
+    if (e.key === 'ArrowDown') { idx = Math.min(idx + 1, shown.length - 1); mark(); e.preventDefault(); }
+    else if (e.key === 'ArrowUp') { idx = Math.max(idx - 1, 0); mark(); e.preventDefault(); }
+    else if (e.key === 'Enter' && idx >= 0) { pick(shown[idx]); e.preventDefault(); }
+  });
+}
+
+function setInst(enabled) {
+  inst.disabled = !enabled; inst.value = '';
+  inst.placeholder = enabled ? 'প্রতিষ্ঠানের নামের অক্ষর লিখুন…' : 'আগে উপজেলা নির্বাচন করুন';
+}
+combo(up, $('upList'), () => UPAZILAS, () => setInst(true));
+up.addEventListener('input', () => { if (!UPAZILAS.includes(up.value)) setInst(false); });
+up.addEventListener('blur', () => { if (!UPAZILAS.includes(up.value)) { up.value = ''; setInst(false); } });
+combo(inst, $('instList'), () => SCHOOLS[up.value] || []);
+
+$('f').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target, err = $('err');
+  err.style.display = 'none';
+  f.querySelectorAll('.invalid').forEach(x => x.classList.remove('invalid'));
+
+  const d = Object.fromEntries(new FormData(f).entries());
+  d.upazila = up.value;
+  d.institution = inst.value.trim();
+  d.rank = (f.querySelector('input[name=rank]:checked') || {}).value || '';
+
+  let bad = [];
+  ['name','father','village','upazila','level'].forEach(k => { if (!String(d[k]||'').trim()) bad.push(f.elements[k]); });
+  if (!d.institution) bad.push(inst);
+  const en = s => String(s||'').replace(/[০-৯]/g, c => '০১২৩৪৫৬৭৮৯'.indexOf(c)).replace(/[\s-]/g,'');
+  const re = /^01[3-9]\d{8}$/;
+  if (!re.test(en(d.phone))) bad.push(f.elements.phone);
+  if (d.phone2 && !re.test(en(d.phone2))) bad.push(f.elements.phone2);
+
+  if (bad.length) {
+    bad.forEach(x => x.classList.add('invalid'));
+    bad[0].scrollIntoView({behavior:'smooth', block:'center'});
+    err.textContent = 'লাল চিহ্নিত ঘরগুলো সঠিকভাবে পূরণ করুন (ফোন নম্বর ১১ ডিজিটের হতে হবে)।';
+    err.style.display = 'block';
+    return;
+  }
+
+  const btn = $('btn'); btn.disabled = true; btn.textContent = 'জমা হচ্ছে…';
+  fetch(API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(d) })
+    .then(r => r.json())
+    .then(res => {
+      if (!res.ok) throw new Error(res.error || 'সমস্যা হয়েছে');
+      f.style.display = 'none'; $('done').style.display = 'block'; window.scrollTo(0, 0);
+    })
+    .catch(ex => {
+      btn.disabled = false; btn.textContent = 'জমা দিন';
+      err.textContent = (ex && ex.message) || 'সমস্যা হয়েছে, আবার চেষ্টা করুন।';
+      err.style.display = 'block';
+    });
+});
+</script>
+</body>
+</html>
