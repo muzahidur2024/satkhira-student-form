@@ -144,10 +144,13 @@
 let SCHOOLS = {};
 const API = 'https://script.google.com/macros/s/AKfycbz2AFVPXizZz8eNy4gaJ4TGLVwbQlebQglUnIZyiDrKD4jV6VxuMu6Nb3WmrDCRQwNqmA/exec';
 let UPAZILAS = ['সাতক্ষীরা সদর','কলারোয়া','তালা','দেবহাটা','আশাশুনি','কালিগঞ্জ','শ্যামনগর'];
-fetch(API + '?action=data').then(r => r.json()).then(d => {
-  if (d && d.schools) SCHOOLS = d.schools;
-  if (d && d.upazilas) UPAZILAS = d.upazilas;
-}).catch(() => {});
+function loadData(n) {
+  fetch(API + '?action=data', { cache: 'no-store' }).then(r => r.json()).then(d => {
+    if (d && d.schools) SCHOOLS = d.schools;
+    if (d && d.upazilas) UPAZILAS = d.upazilas;
+  }).catch(() => { if (n < 6) setTimeout(() => loadData(n + 1), 1500 * (n + 1)); });
+}
+loadData(0);
 const $ = id => document.getElementById(id);
 const up = $('upazila'), inst = $('inst');
 
